@@ -1,0 +1,1 @@
+from src.menorcaminho import * #so pra testar como importa
