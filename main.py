@@ -9,6 +9,8 @@ def ler_entrada():
             peso = int(peso);
             print(f"origem: {origem} destino: {destino} peso: {peso}")
 
+#--------------------------------------------------------------------------------
+
 try:
     ler_entrada();
 
