@@ -7,8 +7,9 @@ from src.MatrizAdjacencia import *
 try:
     #ler_entrada();
     #vetorletras = defineTamMatriz();
-    adicionaArestas()
-
+    matriz = adicionaArestas()
+    for linha in matriz:
+        print(linha)
 
 except FileNotFoundError:
     print(f"Arquivo nao encontrado")

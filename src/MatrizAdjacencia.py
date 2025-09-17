@@ -6,7 +6,7 @@ def converter(x):
 
 def defineTamMatriz():
     arq = input("Digite o nome do arquivo de entrada com extensao na pasta DATA:\n")
-    arq = "entrada.txt"
+    arq = "entrada.txt" #apagar dps LEMBRAR!!!!!!!!!!!!!!!!!!!
 
     vetorLetras = set() #permite inserir uma vez em so
     
@@ -17,20 +17,17 @@ def defineTamMatriz():
             vetorLetras.add(destino.strip())
             print(f"origem: {origem} destino: {destino} peso: {peso}")
 
-    lista_letras = sorted(list(vetorLetras))# o set n deixa ordenar pq e uma hash kk
-    return lista_letras
+    listaletras = sorted(list(vetorLetras))# o set n deixa ordenar pq e uma hash kk
+    return listaletras
 
 
 def adicionaArestas():
-    letras = defineTamMatriz()
-    tam = len(letras)
+    letrasVert = defineTamMatriz()
+    tam = len(letrasVert)
     matriz = [[0] * (tam + 1) for _ in range(tam + 1)]
 
     for i in range(tam):
-        matriz[0][i + 1] = converter(letras[i])
-        matriz[i + 1][0] = converter(letras[i])
-
-    for linha in matriz:
-        print(linha)
+        matriz[0][i + 1] = converter(letrasVert[i])
+        matriz[i + 1][0] = converter(letrasVert[i])
 
     return matriz
