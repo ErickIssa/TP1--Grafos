@@ -7,7 +7,7 @@ from src.MatrizAdjacencia import *
 try:
     #ler_entrada();
     #vetorletras = defineTamMatriz();
-    matriz = adicionaArestas()
+    matriz = criaMatrizAdcjacencia()
     for linha in matriz:
         print(linha)
 

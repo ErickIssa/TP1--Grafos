@@ -4,10 +4,7 @@ def converter(x):
     return chr(x + 65)
 
 
-def defineTamMatriz():
-    arq = input("Digite o nome do arquivo de entrada com extensao na pasta DATA:\n")
-    arq = "entrada.txt" #apagar dps LEMBRAR!!!!!!!!!!!!!!!!!!!
-
+def defineTamMatriz(arq):
     vetorLetras = set() #permite inserir uma vez em so
     
     with open("data/" + arq, "r") as arquivo:
@@ -21,8 +18,8 @@ def defineTamMatriz():
     return listaletras
 
 
-def adicionaArestas():
-    letrasVert = defineTamMatriz()
+def adicionaArestasVertices(arq):
+    letrasVert = defineTamMatriz(arq)
     tam = len(letrasVert)
     matriz = [[0] * (tam + 1) for _ in range(tam + 1)]
 
@@ -30,4 +27,15 @@ def adicionaArestas():
         matriz[0][i + 1] = converter(letrasVert[i])
         matriz[i + 1][0] = converter(letrasVert[i])
 
+    return matriz
+
+def criaMatrizAdcjacencia():
+    arq = input("Digite o nome do arquivo de entrada com extensao na pasta DATA:\n")
+    arq = "entrada.txt" #apagar dps LEMBRAR!!!!!!!!!!!!!!!!!!!
+
+    matriz = adicionaArestasVertices(arq)
+    with open("data/" + arq, "r") as arquivo:
+        for linha in arquivo:
+            origem, destino, peso = linha.strip().split(",")
+            matriz[converter(origem)+1][converter(destino)+1] = int(peso);
     return matriz
