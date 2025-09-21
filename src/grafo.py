@@ -12,6 +12,9 @@ class Grafo:
         self.grafo[u].append((v,peso))
         self.grafo[v].append((u,peso))
 
+    def numeroDeCidades(self):
+        return self.V
+
     def dfs(self, u, visitados, pai, profundidade, low):
             filhos = 0
             visitados[u] = True
@@ -36,5 +39,6 @@ class Grafo:
                 elif v != pai[u]:
                     # Atualiza o low[u] com o pai alcançável
                     low[u] = min(low[u], profundidade[v])
+
 
 

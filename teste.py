@@ -1,7 +1,7 @@
-from conectividade import *
-from grafo import *
-from articulacao import *
-from MatrizAdjacencia import *
+from src.conectividade import *
+from src.grafo import *
+from src.articulacao import *
+from src.MatrizAdjacencia import *
 if __name__ == "__main__":
 
     g = Articulacao(6)
@@ -32,3 +32,4 @@ if __name__ == "__main__":
     vertices, pai, conectados = g2.verificaConectividade(0)
     #print("\nÁrvore DFS (arestas):", vertices)
     print("O Grafo é conexo?", conectados)
+    print("numero: ", g2.numeroDeCidades() )

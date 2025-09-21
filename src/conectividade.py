@@ -1,4 +1,4 @@
-from grafo import Grafo
+from src.grafo import Grafo
 
 class Conectividade (Grafo):
     def __init__(self, vertices):

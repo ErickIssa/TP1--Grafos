@@ -1,4 +1,4 @@
-from grafo import Grafo
+from src.grafo import Grafo
 
 class Articulacao (Grafo):
     def __init__(self, vertices):
