@@ -1,24 +1,25 @@
 from conectividade import *
 from grafo import *
 from articulacao import *
+from MatrizAdjacencia import *
 if __name__ == "__main__":
 
     g = Articulacao(6)
-    g.adiciona_aresta(0, 1)
-    g.adiciona_aresta(0, 2)
-    g.adiciona_aresta(1, 2)
-    g.adiciona_aresta(1, 3)
-    g.adiciona_aresta(3, 4)
-    g.adiciona_aresta(3, 5)
+    g.adiciona_aresta(converter('A'), converter('B'))
+    g.adiciona_aresta(0, 2, 10)
+    g.adiciona_aresta(1, 2, 10)
+    g.adiciona_aresta(1, 3, 10)
+    g.adiciona_aresta(3, 4, 10)
+    g.adiciona_aresta(3, 5, 10)
 
     aps = g.encontraArticulacao()
     print("Pontos de articulação:", aps)
 
     g1 = Conectividade(5)
-    g1.adiciona_aresta(0, 1)
-    g1.adiciona_aresta(1, 2)
-    g1.adiciona_aresta(2, 3)
-    g1.adiciona_aresta(3, 4)
+    g1.adiciona_aresta(0, 1, 10)
+    g1.adiciona_aresta(1, 2, 10)
+    g1.adiciona_aresta(2, 3, 10)
+    g1.adiciona_aresta(3, 4, 10)
 
     vertices, pai, conectados = g1.verificaConectividade(0)
     #print("Árvore DFS (arestas):", vertices)

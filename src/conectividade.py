@@ -11,10 +11,10 @@ class Conectividade (Grafo):
 
         def dfs(u):
             visitados[u] = True
-            for v in grafo.grafo[u]:
+            for v,peso in grafo.grafo[u]:
                 if not visitados[v]:
                     pai[v] = u
-                    vertices.append((u, v))
+                    vertices.append((u, v,peso))
                     dfs(v)
         dfs(start)
         conectados = all(visitados)

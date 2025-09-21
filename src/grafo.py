@@ -8,9 +8,9 @@ class Grafo:
         self.articulaçoes = set()
 
 
-    def adiciona_aresta(self, u, v):
-        self.grafo[u].append(v)
-        self.grafo[v].append(u)
+    def adiciona_aresta(self, u, v,peso=1):
+        self.grafo[u].append((v,peso))
+        self.grafo[v].append((u,peso))
 
     def dfs(self, u, visitados, pai, profundidade, low):
             filhos = 0
@@ -18,7 +18,7 @@ class Grafo:
             self.time += 1
             profundidade[u] = low[u] = self.time
 
-            for v in self.grafo[u]:
+            for v, peso in self.grafo[u]:
                 if not visitados[v]:
                     pai[v] = u
                     filhos += 1
