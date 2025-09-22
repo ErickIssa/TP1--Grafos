@@ -3,7 +3,7 @@ from src.grafo import *
 from src.articulacao import *
 
 
-def adicionaArestasVertices(arq): #constroi grafo apartir do arqv de txt
+def criaGrafobyTxt(arq): #constroi grafo apartir do arqv de txt
     g = Articulacao(defineQntdArestas(arq))
     with open("data/" + arq, "r") as arquivo:
         for linha in arquivo:
@@ -14,8 +14,9 @@ def adicionaArestasVertices(arq): #constroi grafo apartir do arqv de txt
 
 
 def menu():
-    arq = "entrada.txt"
-    g = adicionaArestasVertices(arq)
+    opcao = (input("Digite o nome do arquivo de texto que está na pasta DATA com sua extensão:"))
+    arq = "entrada.txt"#APAGAR ISSO DPS E COLOCAR UMA VERIFICAÇÃO PARA CASO DE ERRADO USAR UM ARQV GENERICO
+    g = criaGrafobyTxt(arq)
 
     while True:
         print("\n===== MENU =====")
