@@ -1,8 +1,12 @@
 from src.conectividade import *
 from src.grafo import *
 from src.articulacao import *
-from src.MatrizAdjacencia import *
+from src.matrizAdjacencia import *
+from src.menu import *
+
 if __name__ == "__main__":
+
+    menu();
 
     g = Articulacao(6)
     g.adiciona_aresta(converter('A'), converter('B'))
@@ -12,8 +16,7 @@ if __name__ == "__main__":
     g.adiciona_aresta(3, 4, 10)
     g.adiciona_aresta(3, 5, 10)
 
-    aps = g.encontraArticulacao()
-    print("Pontos de articulação:", aps)
+    
 
     g1 = Conectividade(5)
     g1.adiciona_aresta(0, 1, 10)

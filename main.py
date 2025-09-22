@@ -1,5 +1,5 @@
 #so pra testar como importa
-from src.MatrizAdjacencia import *
+from src.matrizAdjacencia import *
 
 
 #--------------------------------------------------------------------------------

@@ -40,5 +40,12 @@ class Grafo:
                     # Atualiza o low[u] com o pai alcançável
                     low[u] = min(low[u], profundidade[v])
 
+def converter(x):
+    if isinstance(x, str):
+        return ord(x.upper()) - 65
+    return chr(x + 65)
+
+
+
 
 
