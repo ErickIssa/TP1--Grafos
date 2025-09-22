@@ -40,6 +40,12 @@ class Grafo:
                     # Atualiza o low[u] com o pai alcançável
                     low[u] = min(low[u], profundidade[v])
 
+    def quantidadeVizinhos(self, cidade):
+        if isinstance(cidade, str): #serve pra verificar se e realmente uma letra que ele tá recebendo
+            cidade = converter(cidade)
+
+        return len(self.grafo[cidade])
+
 def converter(x):
     if isinstance(x, str):
         return ord(x.upper()) - 65
@@ -56,7 +62,6 @@ def defineQntdArestas(arq):
             print(f"origem: {origem} destino: {destino} peso: {peso}")
 
     return len(vetorLetras)
-
 
 
 

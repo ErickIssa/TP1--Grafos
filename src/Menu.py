@@ -3,7 +3,7 @@ from src.grafo import *
 from src.articulacao import *
 
 
-def adicionaArestasVertices(arq):
+def adicionaArestasVertices(arq): #constroi grafo apartir do arqv de txt
     g = Articulacao(defineQntdArestas(arq))
     with open("data/" + arq, "r") as arquivo:
         for linha in arquivo:
@@ -16,12 +16,7 @@ def adicionaArestasVertices(arq):
 def menu():
     arq = "entrada.txt"
     g = adicionaArestasVertices(arq)
-    # g.adiciona_aresta(converter('A'), converter('B'))
-    # g.adiciona_aresta(0, 2, 10)
-    # g.adiciona_aresta(1, 2, 10)
-    # g.adiciona_aresta(1, 3, 10)
-    # g.adiciona_aresta(3, 4, 10)
-    
+
     while True:
         print("\n===== MENU =====")
         print("1 - Retornar o número de cidades no grafo")
@@ -49,7 +44,8 @@ def menu():
             case 3:
                 print()
             case 4:
-               print()
+               letraVizinhos = input("Digite a Letra que representa a cidade:") 
+               print("A quantidade de vizinhos do vertice (%s) e %d" % (letraVizinhos, g.quantidadeVizinhos(letraVizinhos)))
             case 5:
                print()
             case 6:

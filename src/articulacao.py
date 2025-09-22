@@ -14,3 +14,4 @@ class Articulacao (Grafo):
             if not visitados[i]:
                 grafo.dfs(i, visitados, pai, profundidade, low)
         return grafo.articulaçoes
+    
