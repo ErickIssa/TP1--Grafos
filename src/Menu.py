@@ -53,8 +53,7 @@ def menu():
             case 5:
                print()
             case 6:
-                g = Conectividade(defineQntdArestas(arq))
-                vertices, pai, conectados = g.verificaConectividade(0)
+                vertices, pai, conectados = Conectividade.verificaConectividade(g, 0)
                 print("O grafo é conexo?", conectados)
             case 7:
                 aps = g.encontraArticulacao()
