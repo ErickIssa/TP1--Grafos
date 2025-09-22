@@ -1,7 +1,3 @@
-from src.conectividade import *
-from src.grafo import *
-from src.articulacao import *
-from src.matrizAdjacencia import *
 from src.menu import *
 
 if __name__ == "__main__":

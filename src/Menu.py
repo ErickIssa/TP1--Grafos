@@ -1,7 +1,7 @@
 from src.conectividade import *
 from src.grafo import *
 from src.articulacao import *
-from src.matrizAdjacencia import *
+
 
 def adicionaArestasVertices(arq):
     g = Articulacao(defineQntdArestas(arq))
