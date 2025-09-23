@@ -5,7 +5,7 @@ from src.menorCaminho import *
 
 
 def criaGrafobyTxt(arq): #constroi grafo apartir do arqv de txt
-    g = Articulacao(defineQntdArestas(arq))
+    g = Grafo(defineQntdArestas(arq))
     with open("data/" + arq, "r") as arquivo:
         for linha in arquivo:
             origem, destino, peso = linha.strip().split(",")
@@ -64,7 +64,7 @@ def menu():
                 print("O grafo é conexo?", conectados)
             
             case 7:
-                aps = g.encontraArticulacao()
+                aps = Articulacao.encontraArticulacao(g)
                 print("Pontos de articulação:", aps)
             
             case 8:
