@@ -1,6 +1,7 @@
 from src.conectividade import *
 from src.grafo import *
 from src.articulacao import *
+from src.menorCaminho import *
 
 
 def criaGrafobyTxt(arq): #constroi grafo apartir do arqv de txt
@@ -15,7 +16,7 @@ def criaGrafobyTxt(arq): #constroi grafo apartir do arqv de txt
 
 def menu():
     opcao = (input("Digite o nome do arquivo de texto que está na pasta DATA com sua extensão:"))
-    arq = "entrada.txt"#APAGAR ISSO DPS E COLOCAR UMA VERIFICAÇÃO PARA CASO DE ERRADO USAR UM ARQV GENERICO
+    arq = "entrada2.txt"#APAGAR ISSO DPS E COLOCAR UMA VERIFICAÇÃO PARA CASO DE ERRADO USAR UM ARQV GENERICO
     g = criaGrafobyTxt(arq)
 
     while True:
@@ -46,21 +47,34 @@ def menu():
                 print()
             case 4:
                letraVizinhos = input("Digite a Letra que representa a cidade:") 
-               print("A quantidade de vizinhos do vertice (%s) e %d" % (letraVizinhos, g.quantidadeVizinhos(letraVizinhos)))
+               print("A quantidade de vizinhos do vertice (%s) é de %d cidade(s) " % (letraVizinhos, g.quantidadeVizinhos(letraVizinhos)))
+
             case 5:
-               print()
+                origem = input("Digite a cidade de origem: ")
+                destino = input("Digite a cidade de destino: ")
+
+                dist, caminho = menorCaminhoDijkstra(g, converter(origem), converter(destino))
+                caminho_letras = [converter(c) for c in caminho]
+
+                print("Menor distancia de %s até %s = %d" % (origem, destino, dist))
+                print("Caminho: ", "->".join(caminho_letras))
+            
             case 6:
                 vertices, pai, conectados = Conectividade.verificaConectividade(g, 0)
                 print("O grafo é conexo?", conectados)
+            
             case 7:
                 aps = g.encontraArticulacao()
                 print("Pontos de articulação:", aps)
+            
             case 8:
                print()
             case 9:
                print()
+            
             case 0:
                 print("-------Execucao Encerrada---------")
                 break
+            
             case _:
                 print("/////Opcao Invalida/////")
