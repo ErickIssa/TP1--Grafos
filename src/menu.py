@@ -5,7 +5,7 @@ from src.menorCaminho import *
 
 
 def criaGrafobyTxt(arq): #constroi grafo apartir do arqv de txt
-    g = Grafo(defineQntdArestas(arq))
+    g = Grafo(defineQntdVertices(arq))
     with open("data/" + arq, "r") as arquivo:
         for linha in arquivo:
             origem, destino, peso = linha.strip().split(",")
@@ -13,10 +13,28 @@ def criaGrafobyTxt(arq): #constroi grafo apartir do arqv de txt
             #print(f"origem: {origem} destino: {destino} peso: {peso}")
     return g
 
+def converterParaArticulacao(g):
+    novo = Articulacao(g.V)
+    for u in g.grafo:
+        for v, peso in g.grafo[u]:
+            if u < v:
+                novo.adiciona_aresta(u, v, peso)
+    return novo
+
+
+def converterParaConectividade(g):
+    novo = Conectividade(g.V)
+    for u in g.grafo:
+        for v, peso in g.grafo[u]:
+            if u < v:
+                novo.adiciona_aresta(u, v, peso)
+    return novo
+
+
 
 def menu():
     opcao = (input("Digite o nome do arquivo de texto que está na pasta DATA com sua extensão:"))
-    arq = "entrada2.txt"#APAGAR ISSO DPS E COLOCAR UMA VERIFICAÇÃO PARA CASO DE ERRADO USAR UM ARQV GENERICO
+    arq = "entrada.txt"#APAGAR ISSO DPS E COLOCAR UMA VERIFICAÇÃO PARA CASO DE ERRADO USAR UM ARQV GENERICO
     g = criaGrafobyTxt(arq)
 
     while True:
@@ -60,13 +78,15 @@ def menu():
                 print("Caminho: ", "->".join(caminho_letras))
             
             case 6:
-                vertices, pai, conectados = Conectividade.verificaConectividade(g, 0)
+                gConect = converterParaConectividade(g)
+                vertices, pai, conectados = gConect.verificaConectividade(0)
+                #print("Árvore DFS (arestas):", vertices)
                 print("O grafo é conexo?", conectados)
-            
+
             case 7:
-                aps = Articulacao.encontraArticulacao(g)
+                gArt = converterParaArticulacao(g)
+                aps = gArt.encontraArticulacao()
                 print("Pontos de articulação:", aps)
-            
             case 8:
                print()
             case 9:

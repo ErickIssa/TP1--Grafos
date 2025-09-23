@@ -51,7 +51,7 @@ def converter(x):
         return ord(x.upper()) - 65
     return chr(x + 65)
 
-def defineQntdArestas(arq):
+def defineQntdVertices(arq):
     vetorLetras = set() #permite inserir uma vez em so
     
     with open("data/" + arq, "r") as arquivo:
