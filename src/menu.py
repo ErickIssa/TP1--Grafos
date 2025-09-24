@@ -48,6 +48,7 @@ def menu():
         print("7 - Identificar cidades críticas (articulação)")
         print("8 - Verificar se existe passeio turístico (ciclo >= 4)")
         print("9 - Exibir exemplo de passeio turístico (se existir)")
+        print("10 - Digitar um novo nome do arquivo de texto (na pasta DATA com sua extensão):")
         print("0 - Sair")
         
         try:
@@ -91,7 +92,9 @@ def menu():
                print()
             case 9:
                print()
-            
+            case 10:
+                arq = (input("Digite o nome do arquivo de texto que está na pasta DATA com sua extensão:"))
+                g = criaGrafobyTxt(arq)
             case 0:
                 print("-------Execucao Encerrada---------")
                 break
