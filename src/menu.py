@@ -1,8 +1,6 @@
-from src.conectividade import *
 from src.grafo import *
 from src.articulacao import *
-from src.menorCaminho import *
-
+from src.conectividade import *
 
 def criaGrafobyTxt(arq): #constroi grafo apartir do arqv de txt
     g = Grafo(defineQntdVertices(arq))

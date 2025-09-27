@@ -1,3 +1,4 @@
+from src.menorCaminho import *
 from collections import defaultdict
 
 class Grafo:
