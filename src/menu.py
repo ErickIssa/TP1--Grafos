@@ -1,6 +1,7 @@
 from src.conectividade import *
 from src.grafo import *
 from src.articulacao import *
+from src.passeioTuristico import *
 
 
 def criaGrafobyTxt(arq): #constroi grafo apartir do arqv de txt
@@ -14,10 +15,25 @@ def criaGrafobyTxt(arq): #constroi grafo apartir do arqv de txt
 
 
 def menu():
-    opcao = (input("Digite o nome do arquivo de texto que está na pasta DATA com sua extensão:"))
-    arq = "entrada.txt"#APAGAR ISSO DPS E COLOCAR UMA VERIFICAÇÃO PARA CASO DE ERRADO USAR UM ARQV GENERICO
-    g = criaGrafobyTxt(arq)
+        
+   
 
+    while True:
+        opcao = (input("Digite o nome do arquivo de texto que está na pasta DATA com sua extensão(Exemplo: entrada.txt)(0 para sair):"))
+        arq = opcao #APAGAR ISSO DPS E COLOCAR UMA VERIFICAÇÃO PARA CASO DE ERRADO USAR UM ARQV GENERICO
+        try:  
+            g = criaGrafobyTxt(arq)
+            break
+        except :
+            if opcao == "0":
+                print("-------Execucao Encerrada---------")
+                return
+            print("arquivo inválido, tente novamente (lembre-se de adicionar o .txt no final)")
+        
+            
+
+
+    
     while True:
         print("\n===== MENU =====")
         print("1 - Retornar o número de cidades no grafo")
@@ -56,9 +72,11 @@ def menu():
                 aps = g.encontraArticulacao()
                 print("Pontos de articulação:", aps)
             case 8:
-               print()
+                verificaSeTemPasseio(g)
+                print()
             case 9:
-               print()
+                ExemploDePasseio(g)
+                print()
             case 0:
                 print("-------Execucao Encerrada---------")
                 break
