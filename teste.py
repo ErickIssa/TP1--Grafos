@@ -23,16 +23,28 @@ if __name__ == "__main__":
 
     vertices, pai, conectados = g1.verificaConectividade(0)
     #print("Árvore DFS (arestas):", vertices)
+    print()
+
     print("O grafo é conexo?", conectados)
+
+    print("Quantidade de estradas:", g1.contaArestas())
+
+    for vertice in g1.grafo:
+        print(f"Vizinhos do vértice {vertice}: {g1.buscaVizinhos(vertice)}")
+        print(f"Número de vizinhos do vértice {vertice}: {g1.contaVizinhos(vertice)}")
+    
     # Grafo desconexo
     g2 = Conectividade(5)
     g2.adiciona_aresta(0, 1)
     g2.adiciona_aresta(2, 3)
 
-    for vertice in g1.grafo:
-        print(f"Vizinhos do vértice {vertice}: {g1.buscaVizinhos(vertice)}")
-
     vertices, pai, conectados = g2.verificaConectividade(0)
     #print("\nÁrvore DFS (arestas):", vertices)
     print("O Grafo é conexo?", conectados)
     print("numero: ", g2.numeroDeCidades() )
+
+    print("Quantidade de estradas:", g1.contaArestas())
+
+    for vertice in g1.grafo:
+        print(f"Vizinhos do vértice {vertice}: {g1.buscaVizinhos(vertice)}")
+        print(f"Número de vizinhos do vértice {vertice}: {g1.contaVizinhos(vertice)}")

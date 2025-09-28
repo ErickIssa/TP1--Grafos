@@ -42,4 +42,14 @@ class Grafo:
 
     def buscaVizinhos(self, vertice):
         return self.grafo[vertice]
+    
+    def contaVizinhos(self, vertice):
+        return len(self.grafo[vertice])
+    
+    def contaArestas(self):
+        totalArestas = 0
+        for vertice in self.grafo:
+            totalArestas += self.contaVizinhos(vertice)
+        
+        return totalArestas / 2  # Handshaking lemma
 
