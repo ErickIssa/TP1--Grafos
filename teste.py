@@ -29,6 +29,9 @@ if __name__ == "__main__":
     g2.adiciona_aresta(0, 1)
     g2.adiciona_aresta(2, 3)
 
+    for vertice in g1.grafo:
+        print(f"Vizinhos do vértice {vertice}: {g1.buscaVizinhos(vertice)}")
+
     vertices, pai, conectados = g2.verificaConectividade(0)
     #print("\nÁrvore DFS (arestas):", vertices)
     print("O Grafo é conexo?", conectados)

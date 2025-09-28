@@ -8,9 +8,9 @@ class Grafo:
         self.articulaçoes = set()
 
 
-    def adiciona_aresta(self, u, v,peso=1):
-        self.grafo[u].append((v,peso))
-        self.grafo[v].append((u,peso))
+    def adiciona_aresta(self, u, v, peso = 1):
+        self.grafo[u].append((v, peso))
+        self.grafo[v].append((u, peso))
 
     def numeroDeCidades(self):
         return self.V
@@ -40,5 +40,6 @@ class Grafo:
                     # Atualiza o low[u] com o pai alcançável
                     low[u] = min(low[u], profundidade[v])
 
-
+    def buscaVizinhos(self, vertice):
+        return self.grafo[vertice]
 
