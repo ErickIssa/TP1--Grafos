@@ -73,11 +73,13 @@ def menu():
 
         match opcao:
             case 1:
-                print()
+                print("A quantidade de cidades no conjunto é de %d cidade(s)" % g.contaVertices())
             case 2:
-                print()
+                cidade = input("Digite a Letra que representa a cidade:")
+                print("A quantidade de estradas no conjunto de cidades é de %d estrada(s)" % g.contaArestas(g))
             case 3:
-                print()
+                cidade = input("Digite a Letra que representa a cidade:")
+                print("As cidades vizinhas são: %s" % g.buscaVizinhos(cidade))
             case 4:
                letraVizinhos = input("Digite a Letra que representa a cidade:") 
                print("A quantidade de vizinhos do vertice (%s) é de %d cidade(s) " % (letraVizinhos, g.quantidadeVizinhos(letraVizinhos)))
