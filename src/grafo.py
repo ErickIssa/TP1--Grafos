@@ -91,7 +91,7 @@ def defineQntdVertices(arq):
         return len(vetorLetras)
 
     def buscaVizinhos(self, vertice):
-        return self.grafo[vertice]
+        return [converter(v) for v, _ in self.grafo[vertice]]
     
     def contaVizinhos(self, vertice):
         return len(self.grafo[vertice])
