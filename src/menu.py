@@ -94,7 +94,7 @@ def menu():
                     print(f"Não existe caminho de {origem} até {destino}.")
                 else:
                     print(f"Menor distância de {origem} até {destino} = {dist}")
-                print("Caminho:", " -> ".join(caminho_letras))
+                    print("Caminho:", " -> ".join(caminho_letras))
 
             
             case 6:
