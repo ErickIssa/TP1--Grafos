@@ -106,7 +106,9 @@ def menu():
             case 7:
                 gArt = converterParaArticulacao(g)
                 aps = gArt.encontraArticulacao()
-                print("Pontos de articulação:", aps)
+                print("Pontos de articulação:")
+                for a in aps:
+                    print(converter(a),end=' ')
             case 8:
                 verificaSeTemPasseio(g)
                 print()
