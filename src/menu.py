@@ -91,7 +91,7 @@ def menu():
                 caminho_letras = [converter(c) for c in caminho]
 
                 if dist == float("inf"):
-                    print(f"Não existe caminho de {origem} até {destino}.")
+                    print(f"Não existe caminho de {origem} até {destino}, por definição a distância é infinita.")
                 else:
                     print(f"Menor distância de {origem} até {destino} = {dist}")
                 print("Caminho:", " -> ".join(caminho_letras))
