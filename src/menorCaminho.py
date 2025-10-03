@@ -2,31 +2,35 @@ import heapq  # para fila de prioridade o heappop sempre retorna o no com a meno
 
 def menorCaminhoDijkstra(grafo, inicio, fim):
     V = grafo.V
-    dt = [float("inf")] * V #o iesimo elemento guarda a dist calculada entre o vertice origem e o vertice i, os menores caminhos
-    rot = [None] * V #vetor que guarda as posicoes de onde passei para ter o menor caminho
+    dt = [float("inf")] * V  # distâncias
+    rot = [None] * V         # predecessores
     visitados = [False] * V
 
     dt[inicio] = 0
-    fila = [(0, inicio)]  # fila pioridade
+    fila = [(0, inicio)]  # fila de prioridade
 
     while fila:
-        distAtual, u = heapq.heappop(fila) #retira no menor dist
+        distAtual, u = heapq.heappop(fila)  # nó com menor distância
 
         if visitados[u]:
             continue
         visitados[u] = True
 
-        if u == fim:  # no atual = no destino
+        if u == fim:  # já chegou no destino
             break
 
-        for v, peso in grafo.grafo[u]: #basicamente verifica se por outro caminho é menor
+        for v, peso in grafo.grafo[u]:
             peso = int(peso)
             if not visitados[v] and dt[u] + peso < dt[v]:
                 dt[v] = dt[u] + peso
                 rot[v] = u
                 heapq.heappush(fila, (dt[v], v))
 
-    # Reconstroi o caminho pelo fim e analisando o vetor rot
+    # Se não há caminho até fim
+    if dt[fim] == float("inf"):
+        return float("inf"), []  
+
+    # Reconstrói o caminho pelo vetor rot
     caminho = []
     atual = fim
     while atual is not None:

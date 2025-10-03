@@ -90,8 +90,12 @@ def menu():
                 dist, caminho = menorCaminhoDijkstra(g, converter(origem), converter(destino))
                 caminho_letras = [converter(c) for c in caminho]
 
-                print("Menor distancia de %s até %s = %d" % (origem, destino, dist))
-                print("Caminho: ", "->".join(caminho_letras))
+                if dist == float("inf"):
+                    print(f"Não existe caminho de {origem} até {destino}.")
+                else:
+                    print(f"Menor distância de {origem} até {destino} = {dist}")
+                print("Caminho:", " -> ".join(caminho_letras))
+
             
             case 6:
                 gConect = converterParaConectividade(g)
