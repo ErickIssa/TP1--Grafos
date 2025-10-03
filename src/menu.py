@@ -91,7 +91,7 @@ def menu():
                 caminho_letras = [converter(c) for c in caminho]
 
                 if dist == float("inf"):
-                    print(f"Não existe caminho de {origem} até {destino}.")
+                    print(f"Não existe caminho de {origem} até {destino}, por definição a distância é infinita.")
                 else:
                     print(f"Menor distância de {origem} até {destino} = {dist}")
                     print("Caminho:", " -> ".join(caminho_letras))
@@ -106,7 +106,9 @@ def menu():
             case 7:
                 gArt = converterParaArticulacao(g)
                 aps = gArt.encontraArticulacao()
-                print("Pontos de articulação:", aps)
+                print("Pontos de articulação:")
+                for a in aps:
+                    print(converter(a),end=' ')
             case 8:
                 verificaSeTemPasseio(g)
                 print()

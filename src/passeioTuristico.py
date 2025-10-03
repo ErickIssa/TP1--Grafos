@@ -33,7 +33,7 @@ def ExemploDePasseio(g:Grafo):
                 if(i==0):
                     print(str(converter(caminho[i])) , end = " ")
                 elif(i == len(caminho)-1):
-                    print("-> " + str(converter(caminho[i])))
+                    print("-> " + str(converter(caminho[i])) + " " + "-> " + str(converter(caminho[0])))
                 else:
                     print("-> " + str(converter(caminho[i])) , end = " ")
 
